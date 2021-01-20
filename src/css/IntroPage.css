@@ -1,0 +1,99 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+}
+
+.intro-page{
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.input-div{
+  border-radius: 40px;
+  position: absolute;
+  top: 35vh;
+  left: 10vh;
+  height: 30vmin;
+  width: 60vmin;
+  background-color: #1f302e;
+}
+
+.input-div p{
+  font-size: 5vmin;
+  height: 0.5vh;
+  color: #ff590c;
+}
+
+.input-field{
+  height: 5vmin;
+  width: 35vmin;
+  font-size: 4vmin;
+  text-align: center;
+  color: #ff590c;
+  margin-top: 4vmin;
+  background-color: #263836;
+  border: 2px solid #ff590c;
+  border-radius: 20px;
+}
+
+input:focus{
+  outline: none;
+  color: #ff590c;
+  background-color: #2e4240;
+  border-color: #ff6b26;
+}
+
+.img-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+.input-button{
+  height: 5vmin;
+  width: 10vmin;
+  margin-left: 1vw; 
+  color: white;
+  outline: none;
+  font-size: 3vmin;
+  background-color: #ff590c;
+  border: 1px;
+  border-radius: 10px;
+}
+
+.input-button:hover{
+  cursor: pointer;
+  border: 0.5vmin solid #ff3700;
+}
+
+.input-button:active{
+  outline: none;
+  background-color: #ff7230;
+}
+
+@media (max-width:600px){
+  .input-div{
+    top: 20vh;
+    width: 80vw;
+    height: 50vmin;
+  }
+
+  .input-div p{
+   font-size: 7vmin;
+  }
+
+  .input-field{
+    margin-top: 10vmin;
+    height: 10vmin;
+    width: 50vmin;
+    font-size: 6vmin;
+  }
+
+  .input-button{
+    height: 8vmin;
+    width: 15vmin;
+    font-size: 4vmin;
+  }
+}
