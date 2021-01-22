@@ -6,7 +6,7 @@ function ChoicePage(props) {
 	const divAnim = useSpring({
 		delay:800,
 		from: {opacity: 0, marginTop: '20vh'},
-		to: props.show ? {opacity: 1, marginTop: '15vh'} : {opacity: 0},
+		to: props.show ? {opacity: 1, marginTop: '13vh'} : {opacity: 0},
 		config: {duration: 800}
 	})
 

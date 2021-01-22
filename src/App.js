@@ -5,11 +5,10 @@ import ChoicePage from './components/ChoicePage'
 
 function App() {
   const [licensePlate, setPlate] = useState('none')
-  const [plateSubmitted, setSubmitted] = useState(false)
 
-  const handleChange = (newLicensePlate) => {
-    setPlate(newLicensePlate)
-  }
+  const [userChoice, setChoice] = useState('none')
+
+  const [plateSubmitted, setSubmitted] = useState(false)
 
   const buttonClick = () => {
     if(licensePlate.length == 7)
@@ -18,7 +17,8 @@ function App() {
 
   return (
     <div>
-      <IntroPage licensePlate = {licensePlate} onChange = { handleChange } btnClick = {buttonClick}/> 
+      {licensePlate}
+      <IntroPage licensePlate = {licensePlate} onChange = { setPlate } btnClick = {buttonClick}/> 
       <ChoicePage show = { plateSubmitted }/>
     </div>
    
