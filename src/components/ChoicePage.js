@@ -1,6 +1,6 @@
 import '../css/ChoicePage.css'
 import { animated, useSpring} from 'react-spring'
-import { FaEthereum, FaCheckCircle } from "react-icons/fa";
+import { FaEthereum, FaCheckCircle } from 'react-icons/fa'
 
 function ChoicePage(props) {
 	const divAnim = useSpring({
@@ -15,7 +15,20 @@ function ChoicePage(props) {
 		to: props.show ? {marginTop: '0vh'} : {}
 	})
 	
-	if(props.show)
+	const choice = async e => {
+		if(e.target.innerHTML == 'CHECK')
+			await props.check()
+
+		props.setPosition({
+			x: e.clientX,
+			y: e.clientY
+		})
+
+		props.setChoice(e.target.innerHTML)
+		
+	}
+	
+	if (props.show)
 		return(
 			<animated.div className="main" style={pageAnim}>
 				<p className="title">What would you like </p>
@@ -24,7 +37,7 @@ function ChoicePage(props) {
 					<animated.div className="choice-div" style={divAnim}>
 						<div className="button-div">
 							<FaEthereum size="3em" color="#04d9ff"/>
-							<button>PAY</button>
+							<button onClick={ choice }>PAY</button>
 						</div>
 						<div className="text-div">
 							<text>Pay your road toll with ethereum and store it safely on the blockchain</text>
@@ -32,8 +45,8 @@ function ChoicePage(props) {
 					</animated.div>
 					<animated.div className="choice-div" style={divAnim}>
 						<div className="button-div">
-							<FaCheckCircle size="3em" color="#00ff15"/>
-							<button className="check-button">CHECK</button>
+							<FaCheckCircle size="3em" color="#00ff15" className="circle-icon"/>
+							<button onClick={ choice }>CHECK</button>
 						</div>
 						<div className="text-div">
 							<text>Check if the fee is already payed</text>

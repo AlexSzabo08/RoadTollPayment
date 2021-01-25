@@ -10,7 +10,7 @@ export default function IntroPage(props) {
         to: {left: '10vh'}
     })
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         props.onChange(e.target.value)
     }
 

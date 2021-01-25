@@ -1,0 +1,9 @@
+.check-page {
+    text-align: center;
+    color:whitesmoke;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    align-items: center;
+}

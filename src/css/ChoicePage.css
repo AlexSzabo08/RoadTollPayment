@@ -32,20 +32,29 @@
 }
 
 .choice-div button{
+	outline: none;
+	margin: 0.1vmin;
 	color: white;
 	font-size: 5vmin;
 	text-align: center;
 	background-color: #ff590c;
-	border: 1px;
+	border: 0px;
 	border-radius: 10px;
 }
 
-.choice-div button:focus{
-	outline: none;
-}
+.choice-div button:hover{
+	cursor: pointer;
+	margin: 0px;
+	border: 0.1vmin solid #ff3700;
+  }
 
-.check-button{
-	margin-left: 1vmin;
+.choice-div button:active{
+	outline: none;
+	background-color: #ff7230;
+  }
+
+.circle-icon {
+	margin-right: 1vmin;
 }
 
 .container{

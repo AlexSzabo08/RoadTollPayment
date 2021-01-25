@@ -1,0 +1,52 @@
+.pay-page {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    align-items: center;
+}
+
+.icon-div{
+    margin-top: 15vh;
+    display: flex;
+    justify-content: center;
+}
+
+.road-icon{
+    color: #00ad2e;
+}
+
+.pay-text{
+    margin-top: 5vh;
+    color: #ff590c;
+    font-size: 15vmin;
+    text-align: center;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.pay-btn{
+    outline: none;
+    color:#00ff11;
+    font-size: 3vmin;
+    width: 25vmin;
+    height: 10vmin;
+    background-color: black;
+    border: 0.4vmin solid #00ff11;
+    border-radius: 15px;
+}
+
+.pay-btn:hover{
+    cursor: pointer;
+    color:black;
+    background-color: #00ff11;
+   
+}
+
+.pay-btn p{
+    margin-top: 0.5vmin;
+    margin-bottom: 0;
+}
