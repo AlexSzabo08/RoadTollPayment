@@ -42,7 +42,7 @@ contract  RoadToll {
     
     function addDays(Date memory date, uint8 _days) public pure returns (Date memory){
         uint8 mthDays = monthDays(date.month, date.year);
-        if (mthDays > date.day + _days){
+        if (mthDays >= date.day + _days){
             date.day += _days;
             return date;
         }
@@ -76,6 +76,8 @@ contract  RoadToll {
         date.month = _month; 
         date.day = _day;
         
+        bool alreadyPayed = false;
+
         if(msg.value >= 0.003 ether && msg.value < 0.007 ether)
             date = addDays(date, 7);
             
@@ -91,8 +93,15 @@ contract  RoadToll {
             }
             date.year ++;
         }
-        
-        expDate[_plate] = date;
+        if(expDate[_plate].year > date.year){
+            alreadyPayed = true;
+        } else if (expDate[_plate].month > date.month && expDate[_plate].year == date.year){
+                alreadyPayed = true;
+            } else if (expDate[_plate].day > date.day && expDate[_plate].year == date.year && expDate[_plate].month == date.month){
+                alreadyPayed = true;
+            }
+        if(!alreadyPayed || expDate[_plate].year == 0)
+            expDate[_plate] = date;
     }
     
     function checkToll(string memory _plate) public view returns(Date memory){

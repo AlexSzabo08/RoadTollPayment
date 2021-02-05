@@ -40,7 +40,7 @@ function ChoicePage(props) {
 							<button onClick={ choice }>PAY</button>
 						</div>
 						<div className="text-div">
-							<text>Pay your road toll with ethereum and store it safely on the blockchain</text>
+							<p>Pay your road toll with ethereum and store it safely on the blockchain</p>
 						</div>
 					</animated.div>
 					<animated.div className="choice-div" style={divAnim}>
@@ -49,8 +49,7 @@ function ChoicePage(props) {
 							<button onClick={ choice }>CHECK</button>
 						</div>
 						<div className="text-div">
-							<text>Check if the fee is already payed</text>
-							<p className="note">Note: You will pay a gas fee.</p>
+							<p>Check if the fee is already payed or when it expires</p>
 						</div>
 					</animated.div>
 				</div>

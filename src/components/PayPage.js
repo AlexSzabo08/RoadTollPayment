@@ -16,15 +16,20 @@ export default function PayPage(props) {
     }))
 
     const btnAnim = useSpring({
-        delay:500,
+        delay:1200,
+        from: {opacity: 0},
+        to: btnPressed ? {opacity: 1} : {opacity: 0},
+    })
+
+    const textAnim = useSpring({
+        delay:400,
         from: {opacity: 0, marginTop: '20vh'},
-        to: btnPressed ? {opacity: 1, marginTop: '15vh'} : {opacity: 0},
-        config: {duration: 800}
+        to: btnPressed ? {opacity: 1, marginTop: '10vh'} : {opacity: 0},
     })
 
     if (props.choice == 'PAY'){
         let topPosition  = props.position.y.toString() + 'px'
-        let leftPosition = (props.position.x + 100).toString() + 'px'
+        let leftPosition = (props.position.x).toString() + 'px'
         console.log('top', topPosition)
         console.log('left', leftPosition)
         setAnim({
@@ -44,13 +49,13 @@ export default function PayPage(props) {
         })
         return (
             <animated.div className="pay-page" style={ pageAnim }>
-                <div className="icon-div">
+                <animated.div className="icon-div" style={ textAnim }>
                     <ImRoad className="road-icon" size="15vmin"/>
-                </div>
+                </animated.div>
 
-                <div className="pay-text">
-                    <text>Select a payment type</text>
-                </div>
+                <animated.div className="pay-text" style={ textAnim }>
+                    <p>Select a payment type</p>
+                </animated.div>
                
                 <animated.div className="btn-container" style={btnAnim} >
 
@@ -61,7 +66,9 @@ export default function PayPage(props) {
                     <PaymentButton time='90 days' price='0.012' pay={props.pay} toWei ={ props.toWei }/>
                     
                     <PaymentButton time='1 year ' price='0.027' pay={props.pay} toWei ={ props.toWei }/>
+                    
                 </animated.div>
+
             </animated.div>
         )
     }

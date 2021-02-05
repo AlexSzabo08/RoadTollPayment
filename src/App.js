@@ -69,8 +69,12 @@ function App() {
   }
 
   const payToll = etherAmount => {
+    const today = new Date()
+    const day = today.getDate()
+    const month = today.getMonth() + 1
+    const year = today.getFullYear()
     setLoading(true)
-    contract.methods.payToll(licensePlate,2021,1,25).send({ value: etherAmount, from: userAccount }).on('transactionHash', (hash) => {
+    contract.methods.payToll(licensePlate,year, month, day).send({ value: etherAmount, from: userAccount }).on('transactionHash', (hash) => {
       setLoading(false)
     })
   }
@@ -79,14 +83,13 @@ function App() {
     const today = new Date()
     const expDate = await contract.methods.checkToll(licensePlate).call()
     let expired = false
-    console.log(1,expired)
     if(today.getFullYear() > expDate.year){
       expired = true
       console.log('years',today.getFullYear(),expDate.year)
-    } else if(today.getMonth() + 1 > expDate.month){
+    } else if(today.getMonth() + 1 > expDate.month && today.getFullYear() == expDate.year){
         expired = true
         console.log(3,expired)
-      } else if(today.getDay() > expDate.day){
+      } else if(today.getDate() > expDate.day && today.getFullYear() == expDate.year && today.getMonth() + 1 == expDate.month){
           expired = true
           console.log(4,expired)
         }
@@ -104,7 +107,7 @@ function App() {
       <IntroPage licensePlate = {licensePlate} onChange = { setPlate } btnClick = {buttonClick}/> 
       <ChoicePage show = { plateSubmitted } setPosition = { setPosition } setChoice = {setChoice} check = { check }/>
       <PayPage position = { btnPosition } choice = { userChoice } pay = { payToll } toWei = { conversion } />
-      <CheckPage position = { btnPosition } choice = { userChoice } status = {status} />
+      <CheckPage position = { btnPosition } plate = { licensePlate } choice = { userChoice } status = {status} />
     </div>
    
   )

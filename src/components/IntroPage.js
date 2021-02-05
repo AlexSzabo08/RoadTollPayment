@@ -6,8 +6,8 @@ import backGround from '../img/back-ground.jpg'
 
 export default function IntroPage(props) {
     const move = useSpring({
-        from: {left: '-10vh'},
-        to: {left: '10vh'}
+        from: {left: '-15vw'},
+        to: {left: '8vw'}
     })
 
     const handleChange = e => {
