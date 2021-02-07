@@ -7,10 +7,26 @@ import { useSpring, animated } from "react-spring"
 
 export default function PayPage(props) {
 
-    const [pageAnim, setAnim] = useSpring(() => ({
-        from: {},
-        to: {}
-    }))
+    let topPosition  = props.position.y.toString() + 'px'
+    let leftPosition = props.position.x.toString() + 'px'
+
+    const pageAnim = useSpring({
+        from: {
+            top:  topPosition,
+            left: leftPosition,
+            height: '0vh',
+            width: '0vw'
+        },
+        to: (props.choice == 'PAY')
+            ?{
+                top:  '0px',
+                left: '0px' ,
+                height: '100vh',
+                width:  '100vw'
+            }
+            :{}
+
+    })
 
     const btnAnim = useSpring({
         delay:1200,
@@ -24,26 +40,13 @@ export default function PayPage(props) {
         to: (props.choice == 'PAY') ? {opacity: 1, marginTop: '10vh'} : {opacity: 0},
     })
 
-    if (props.choice == 'PAY' && props.position.x != 0){
+    if (props.choice == 'PAY' && props.position.x != 0) {
+        
         let topPosition  = props.position.y.toString() + 'px'
         let leftPosition = props.position.x.toString() + 'px'
         console.log('top', topPosition)
         console.log('left', leftPosition)
-        setAnim({
-            from: {
-                top:  topPosition,
-                left: leftPosition,
-                height: '0vh',
-                width: '0vw'
-            },
-            to: {
-                top:  '0px',
-                left: '0px' ,
-                height: '100vh',
-                width:  '100vw'
-            }
-
-        })
+        
         return (
             <animated.div className="pay-page" style={ pageAnim }>
                 <animated.div className="icon-div" style={ textAnim }>
@@ -53,7 +56,7 @@ export default function PayPage(props) {
                 <animated.div className="pay-text" style={ textAnim }>
                     <p>Select a payment type</p>
                 </animated.div>
-               
+                
                 <animated.div className="btn-container" style={btnAnim} >
 
                     <PaymentButton time='7 days' price='0.003' pay={props.pay} toWei ={ props.toWei }/>
@@ -67,7 +70,9 @@ export default function PayPage(props) {
                 </animated.div>
 
             </animated.div>
-        )
+        )  
+        
+        
     }
     else return null
 }
