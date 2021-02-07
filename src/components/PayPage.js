@@ -34,8 +34,8 @@ export default function PayPage(props) {
         console.log('left', leftPosition)
         setPay({
             from: {
-                top:  topPosition,
-                left: leftPosition,
+                top:  props.btnInfo.y.toString() + 'px',
+                left: props.btnInfo.x.toString() + 'px',
                 height: '0vh',
                 width: '0vw'
             },
@@ -47,6 +47,7 @@ export default function PayPage(props) {
             }
 
         })
+        
 
         return (
             <animated.div className="pay-page" style={ payAnim }>
