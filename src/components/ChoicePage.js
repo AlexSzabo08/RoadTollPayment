@@ -19,13 +19,12 @@ function ChoicePage(props) {
 		if(e.target.innerHTML == 'CHECK')
 			props.check()
 
+		props.setChoice(e.target.innerHTML)
+		
 		props.setPosition({
 			x: e.clientX,
 			y: e.clientY
 		})
-
-		props.setChoice(e.target.innerHTML)
-		
 	}
 	
 	if (props.show)

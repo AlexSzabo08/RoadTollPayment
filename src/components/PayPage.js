@@ -6,9 +6,6 @@ import { ImRoad } from "react-icons/im"
 import { useSpring, animated } from "react-spring"
 
 export default function PayPage(props) {
-    
-
-    const btnPressed = props.position.x != 0
 
     const [pageAnim, setAnim] = useSpring(() => ({
         from: {},
@@ -18,13 +15,13 @@ export default function PayPage(props) {
     const btnAnim = useSpring({
         delay:1200,
         from: {opacity: 0},
-        to: btnPressed ? {opacity: 1} : {opacity: 0},
+        to: (props.choice == 'PAY') ? {opacity: 1} : {opacity: 0},
     })
 
     const textAnim = useSpring({
         delay:400,
         from: {opacity: 0, marginTop: '20vh'},
-        to: btnPressed ? {opacity: 1, marginTop: '10vh'} : {opacity: 0},
+        to: (props.choice == 'PAY') ? {opacity: 1, marginTop: '10vh'} : {opacity: 0},
     })
 
     if (props.choice == 'PAY'){
