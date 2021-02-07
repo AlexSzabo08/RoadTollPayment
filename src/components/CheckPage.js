@@ -5,6 +5,9 @@ import '../css/CheckPage.css'
 import { useSpring, animated } from "react-spring"
 
 export default function CheckPage(props) {
+
+    const choice = props.btnInfo.choice
+
     const [pageAnim, setAnim] = useSpring(() => ({
         from: {},
         to: {}
@@ -17,24 +20,24 @@ export default function CheckPage(props) {
     const iconAnim = useSpring({
         delay:1500,
         from: {opacity: 0, marginTop: '10vh'},
-        to: (props.choice == 'CHECK') ? {opacity: 1, marginTop: '5vh'} : {opacity: 0},
+        to: (choice == 'CHECK') ? {opacity: 1, marginTop: '5vh'} : {opacity: 0},
     })
 
     const textAnim = useSpring({
         delay:2000,
         from: {opacity: 0, marginTop: '10vh'},
-        to: (props.choice == 'CHECK') ? {opacity: 1} : {opacity: 0},
+        to: (choice == 'CHECK') ? {opacity: 1} : {opacity: 0},
     })
 
     const plateAnim = useSpring({
         delay:400,
         from: {opacity: 0, marginTop: '15vh'},
-        to: (props.choice == 'CHECK') ? {opacity: 1, marginTop: '5vh'} : {opacity: 0},
+        to: (choice == 'CHECK') ? {opacity: 1, marginTop: '5vh'} : {opacity: 0},
     })
 
-    if (props.choice == 'CHECK'){
-        let topPosition  = props.position.y.toString() + 'px'
-        let leftPosition = props.position.x.toString() + 'px'
+    if (choice == 'CHECK'){
+        let topPosition  = props.btnInfo.y.toString() + 'px'
+        let leftPosition = props.btnInfo.x.toString() + 'px'
         console.log('top', topPosition)
         console.log('left', leftPosition)
         setAnim({

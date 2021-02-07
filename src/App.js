@@ -18,11 +18,10 @@ function App() {
 
   const [licensePlate, setPlate] = useState('none')
 
-  const [userChoice, setChoice] = useState('')
-
-  const [btnPosition, setPosition] = useState({
+  const [btnInfo, setInfo] = useState({
     x: 0,
-    y: 0
+    y: 0,
+    choice: ''
   })
 
   const [plateSubmitted, setSubmitted] = useState(false)
@@ -105,9 +104,9 @@ function App() {
   return (
     <div>
       <IntroPage licensePlate = {licensePlate} onChange = { setPlate } btnClick = {buttonClick}/> 
-      <ChoicePage show = { plateSubmitted } setPosition = { setPosition } setChoice = {setChoice} check = { check }/>
-      <PayPage position = { btnPosition } choice = { userChoice } pay = { payToll } toWei = { conversion } />
-      <CheckPage position = { btnPosition } plate = { licensePlate } choice = { userChoice } status = {status} />
+      <ChoicePage show = { plateSubmitted } setInfo = { setInfo } check = { check }/>
+      <PayPage btnInfo = { btnInfo } pay = { payToll } toWei = { conversion } />
+      <CheckPage btnInfo = { btnInfo } plate = { licensePlate } status = {status} />
     </div>
    
   )

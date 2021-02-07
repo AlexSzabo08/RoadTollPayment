@@ -7,46 +7,47 @@ import { useSpring, animated } from "react-spring"
 
 export default function PayPage(props) {
 
-    let topPosition  = props.position.y.toString() + 'px'
-    let leftPosition = props.position.x.toString() + 'px'
+    const choice = props.btnInfo.choice
 
-    const pageAnim = useSpring({
-        from: {
-            top:  topPosition,
-            left: leftPosition,
-            height: '0vh',
-            width: '0vw'
-        },
-        to: (props.choice == 'PAY')
-            ?{
-                top:  '0px',
-                left: '0px' ,
-                height: '100vh',
-                width:  '100vw'
-            }
-            :{}
-
-    })
+    const [pageAnim, setAnim] = useSpring(() => ({
+        from: {},
+        to: {}
+    }))
 
     const btnAnim = useSpring({
         delay:1200,
         from: {opacity: 0},
-        to: (props.choice == 'PAY') ? {opacity: 1} : {opacity: 0},
+        to: (choice == 'PAY') ? {opacity: 1} : {opacity: 0},
     })
 
     const textAnim = useSpring({
         delay:400,
         from: {opacity: 0, marginTop: '20vh'},
-        to: (props.choice == 'PAY') ? {opacity: 1, marginTop: '10vh'} : {opacity: 0},
+        to: (choice == 'PAY') ? {opacity: 1, marginTop: '10vh'} : {opacity: 0},
     })
 
-    if (props.choice == 'PAY' && props.position.x != 0) {
+    if (choice == 'PAY') {
         
-        let topPosition  = props.position.y.toString() + 'px'
-        let leftPosition = props.position.x.toString() + 'px'
+        let topPosition  = props.btnInfo.y.toString() + 'px'
+        let leftPosition = props.btnInfo.x.toString() + 'px'
         console.log('top', topPosition)
         console.log('left', leftPosition)
-        
+        setAnim({
+            from: {
+                top:  topPosition,
+                left: leftPosition,
+                height: '0vh',
+                width: '0vw'
+            },
+            to: {
+                top:  '0px',
+                left: '0px' ,
+                height: '100vh',
+                width:  '100vw'
+            }
+
+        })
+
         return (
             <animated.div className="pay-page" style={ pageAnim }>
                 <animated.div className="icon-div" style={ textAnim }>

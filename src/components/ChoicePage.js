@@ -16,15 +16,16 @@ function ChoicePage(props) {
 	})
 	
 	const choice =  e => {
+		
 		if(e.target.innerHTML == 'CHECK')
 			props.check()
 
-		props.setPosition({
+		props.setInfo({
 			x: e.clientX,
-			y: e.clientY
+			y: e.clientY,
+			choice: e.target.innerHTML
 		})
 
-		props.setChoice(e.target.innerHTML)
 	}
 	
 	if (props.show)
