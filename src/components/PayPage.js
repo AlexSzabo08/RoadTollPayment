@@ -24,7 +24,7 @@ export default function PayPage(props) {
         to: (props.choice == 'PAY') ? {opacity: 1, marginTop: '10vh'} : {opacity: 0},
     })
 
-    if (props.choice == 'PAY'){
+    if (props.choice == 'PAY' && props.position.x != 0){
         let topPosition  = props.position.y.toString() + 'px'
         let leftPosition = props.position.x.toString() + 'px'
         console.log('top', topPosition)
