@@ -9,7 +9,7 @@ export default function PayPage(props) {
 
     const choice = props.btnInfo.choice
 
-    const [pageAnim, setAnim] = useSpring(() => ({
+    const [payAnim, setAnim] = useSpring(() => ({
         from: {},
         to: {}
     }))
@@ -49,7 +49,7 @@ export default function PayPage(props) {
         })
 
         return (
-            <animated.div className="pay-page" style={ pageAnim }>
+            <animated.div className="pay-page" style={ payAnim }>
                 <animated.div className="icon-div" style={ textAnim }>
                     <ImRoad className="road-icon" size="15vmin"/>
                 </animated.div>
