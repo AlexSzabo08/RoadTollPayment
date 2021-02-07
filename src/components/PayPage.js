@@ -9,7 +9,7 @@ export default function PayPage(props) {
 
     const choice = props.btnInfo.choice
 
-    const [payAnim, setAnim] = useSpring(() => ({
+    const [payAnim, setPay] = useSpring(() => ({
         from: {},
         to: {}
     }))
@@ -32,7 +32,7 @@ export default function PayPage(props) {
         let leftPosition = props.btnInfo.x.toString() + 'px'
         console.log('top', topPosition)
         console.log('left', leftPosition)
-        setAnim({
+        setPay({
             from: {
                 top:  topPosition,
                 left: leftPosition,
