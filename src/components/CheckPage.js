@@ -33,7 +33,6 @@ export default function CheckPage(props) {
     })
 
     if (props.choice == 'CHECK'){
-        console.log(props.status.expired)
         let topPosition  = props.position.y.toString() + 'px'
         let leftPosition = props.position.x.toString() + 'px'
         console.log('top', topPosition)

@@ -26,7 +26,7 @@ export default function PayPage(props) {
 
     if (props.choice == 'PAY'){
         let topPosition  = props.position.y.toString() + 'px'
-        let leftPosition = (props.position.x).toString() + 'px'
+        let leftPosition = props.position.x.toString() + 'px'
         console.log('top', topPosition)
         console.log('left', leftPosition)
         setAnim({
