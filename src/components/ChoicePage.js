@@ -15,9 +15,9 @@ function ChoicePage(props) {
 		to: props.show ? {marginTop: '0vh'} : {}
 	})
 	
-	const choice = async e => {
+	const choice =  e => {
 		if(e.target.innerHTML == 'CHECK')
-			await props.check()
+			props.check()
 
 		props.setPosition({
 			x: e.clientX,
