@@ -1,3 +1,8 @@
+require("dotenv").config()
+const HDWalletProvider = require("@truffle/hdwallet-provider")
+
+
+
 module.exports = {
   networks: {
     development: {
@@ -5,6 +10,14 @@ module.exports = {
       port: 7545,
       network_id: "*" // Match any network id
     },
+    ropsten: {
+      provider: () => {
+        return new HDWalletProvider(process.env.PHRASE, 
+                             process.env.INFURA)
+      },
+      network_id: 3,
+      gas: 4700000
+    }
   },
   contracts_build_directory: './src/abis/',
   compilers: {
