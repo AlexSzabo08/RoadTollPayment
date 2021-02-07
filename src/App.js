@@ -14,8 +14,6 @@ function App() {
 
   const [status, setStatus] = useState({})
 
-  const [loading, setLoading] = useState(false)
-
   const [userAccount, setAccount] = useState('')
 
   const [licensePlate, setPlate] = useState('none')
@@ -49,9 +47,12 @@ function App() {
     const networkId =  await web3.eth.net.getId()
     const contractData = RoadToll.networks[networkId]
 
+    console.log(networkId)
+    console.log(contractData)
+
     if(contractData) {
       const roadToll = new web3.eth.Contract(RoadToll.abi, contractData.address)
-      console.log(roadToll)
+      
       setContract(roadToll)
     } else {
       window.alert('RoadToll contract not deployed to detected network.')
@@ -73,9 +74,8 @@ function App() {
     const day = today.getDate()
     const month = today.getMonth() + 1
     const year = today.getFullYear()
-    setLoading(true)
     contract.methods.payToll(licensePlate,year, month, day).send({ value: etherAmount, from: userAccount }).on('transactionHash', (hash) => {
-      setLoading(false)
+      window.location.reload()
     })
   }
 
