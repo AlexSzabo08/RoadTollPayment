@@ -26,6 +26,15 @@ function ChoicePage(props) {
 			choice: e.target.innerHTML
 		})
 
+		if(e.target.innerHTML == 'CHECK')
+			props.check()
+
+		props.setInfo({
+			x: e.clientX,
+			y: e.clientY,
+			choice: e.target.innerHTML
+		})
+
 	}
 	
 	if (props.show)
