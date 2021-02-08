@@ -33,7 +33,7 @@ function ChoicePage(props) {
 				y: e.clientY,
 				choice: e.target.innerHTML
 			})
-		}, 300);
+		}, 100);
 
 	}
 	
