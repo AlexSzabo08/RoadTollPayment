@@ -9,6 +9,7 @@ export default function CheckPage(props) {
     const choice = props.btnInfo.choice
 
     const [pageAnim, setAnim] = useSpring(() => ({
+        delay: 10,
         from: {},
         to: {}
     }))
