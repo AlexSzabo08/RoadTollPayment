@@ -46,9 +46,6 @@ function App() {
     const networkId =  await web3.eth.net.getId()
     const contractData = RoadToll.networks[networkId]
 
-    console.log(networkId)
-    console.log(contractData)
-
     if(contractData) {
       const roadToll = new web3.eth.Contract(RoadToll.abi, contractData.address)
       
@@ -84,15 +81,11 @@ function App() {
     let expired = false
     if(today.getFullYear() > expDate.year){
       expired = true
-      console.log('years',today.getFullYear(),expDate.year)
     } else if(today.getMonth() + 1 > expDate.month && today.getFullYear() == expDate.year){
         expired = true
-        console.log(3,expired)
       } else if(today.getDate() > expDate.day && today.getFullYear() == expDate.year && today.getMonth() + 1 == expDate.month){
           expired = true
-          console.log(4,expired)
         }
-        console.log(5,expired)
     setStatus ({
       expired: expired,
       expYear: expDate.year,

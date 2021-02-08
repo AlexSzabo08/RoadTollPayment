@@ -30,8 +30,6 @@ export default function PayPage(props) {
         
         let topPosition  = props.btnInfo.y.toString() + 'px'
         let leftPosition = props.btnInfo.x.toString() + 'px'
-        console.log('top', topPosition)
-        console.log('left', leftPosition)
         setPay({
             from: {
                 top:  props.btnInfo.y.toString() + 'px',

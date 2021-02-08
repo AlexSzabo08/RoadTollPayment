@@ -25,9 +25,9 @@ function ChoicePage(props) {
 			y: e.clientY,
 			choice: e.target.innerHTML
 		})
-
+		
+		//Updated state to solve animation bug
 		setTimeout(() => {
-			console.log('timeout')
 			props.setInfo({
 				x: e.clientX,
 				y: e.clientY,

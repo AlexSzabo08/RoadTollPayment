@@ -7,7 +7,6 @@ export default function PaymentButton(props) {
 
     const payToll = () => {
         let amount = props.price
-        console.log(amount)
         amount = props.toWei(amount)
         props.pay(amount)
     }

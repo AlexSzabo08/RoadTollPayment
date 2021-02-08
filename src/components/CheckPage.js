@@ -9,7 +9,6 @@ export default function CheckPage(props) {
     const choice = props.btnInfo.choice
 
     const [pageAnim, setAnim] = useSpring(() => ({
-        delay: 10,
         from: {},
         to: {}
     }))
@@ -39,8 +38,6 @@ export default function CheckPage(props) {
     if (choice == 'CHECK'){
         let topPosition  = props.btnInfo.y.toString() + 'px'
         let leftPosition = props.btnInfo.x.toString() + 'px'
-        console.log('top', topPosition)
-        console.log('left', leftPosition)
         setAnim({
             from: {
                 top:  topPosition,
@@ -70,7 +67,7 @@ export default function CheckPage(props) {
 
                 <animated.div className="status" style={ textAnim }>
                     {props.status.expired 
-                        ? <p className="expired">You haven't payed your road toll {month}/{day}/{year}</p>
+                        ? <p className="expired">You haven't payed your road toll</p>
                         : <p className="payed">Your toll is payed until {month}/{day}/{year}</p>
                     }
                 </animated.div>
